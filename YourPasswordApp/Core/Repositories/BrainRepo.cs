@@ -156,6 +156,9 @@ namespace YourPasswordApp.Core.Repositories
             return 500;
         }
 
-
+        public string GetPath()
+        {
+            return _path; 
+        }
     }
 }

@@ -15,5 +15,6 @@ namespace YourPasswordApp.Core.Services
         IList<PasswordData> GetAllPasswordData();
         int DeletePassword(int myId);
         int EditPassword(IList<PasswordData> passwords);
+        string GetPath();
     }
 }

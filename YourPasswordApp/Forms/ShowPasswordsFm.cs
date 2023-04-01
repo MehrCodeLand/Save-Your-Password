@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -111,6 +112,18 @@ namespace YourPasswordApp.Forms
             Thread.Sleep(100);
             this.Hide();
             this.Close();
+        }
+
+        private void OpenFileBtn_Click(object sender, EventArgs e)
+        {
+            var path = _brain.GetPath();
+            new Process
+            {
+                StartInfo = new ProcessStartInfo(path)
+                {
+                    UseShellExecute = true,
+                }
+            }.Start();
         }
     }
 }

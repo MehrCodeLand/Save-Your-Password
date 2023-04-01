@@ -35,6 +35,7 @@
             this.passwordDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.DeleteBox = new System.Windows.Forms.TextBox();
+            this.OpenFileBtn = new System.Windows.Forms.Button();
             this.myPasswordIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordStrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,10 +86,10 @@
             this.createdDataGridViewTextBoxColumn});
             this.passwordsDG.DataSource = this.passwordDataBindingSource;
             this.passwordsDG.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.passwordsDG.Location = new System.Drawing.Point(133, 46);
+            this.passwordsDG.Location = new System.Drawing.Point(59, 32);
             this.passwordsDG.Name = "passwordsDG";
             this.passwordsDG.RowTemplate.Height = 25;
-            this.passwordsDG.Size = new System.Drawing.Size(576, 201);
+            this.passwordsDG.Size = new System.Drawing.Size(696, 201);
             this.passwordsDG.TabIndex = 2;
             // 
             // passwordDataBindingSource
@@ -113,8 +114,21 @@
             this.DeleteBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DeleteBox.Location = new System.Drawing.Point(260, 263);
             this.DeleteBox.Name = "DeleteBox";
-            this.DeleteBox.Size = new System.Drawing.Size(144, 33);
+            this.DeleteBox.Size = new System.Drawing.Size(190, 33);
             this.DeleteBox.TabIndex = 4;
+            // 
+            // OpenFileBtn
+            // 
+            this.OpenFileBtn.BackColor = System.Drawing.Color.Aquamarine;
+            this.OpenFileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OpenFileBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OpenFileBtn.Location = new System.Drawing.Point(262, 302);
+            this.OpenFileBtn.Name = "OpenFileBtn";
+            this.OpenFileBtn.Size = new System.Drawing.Size(120, 54);
+            this.OpenFileBtn.TabIndex = 5;
+            this.OpenFileBtn.Text = "Open Password File";
+            this.OpenFileBtn.UseVisualStyleBackColor = false;
+            this.OpenFileBtn.Click += new System.EventHandler(this.OpenFileBtn_Click);
             // 
             // myPasswordIdDataGridViewTextBoxColumn
             // 
@@ -141,7 +155,7 @@
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 130;
+            this.descriptionDataGridViewTextBoxColumn.Width = 250;
             // 
             // createdDataGridViewTextBoxColumn
             // 
@@ -157,6 +171,7 @@
             this.BackgroundImage = global::YourPasswordApp.Properties.Resources.chong_wei__aWyVkkLrc8_unsplash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OpenFileBtn);
             this.Controls.Add(this.DeleteBox);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.passwordsDG);
@@ -179,6 +194,7 @@
         private BindingSource passwordDataBindingSource;
         private Button DeleteBtn;
         private TextBox DeleteBox;
+        private Button OpenFileBtn;
         private DataGridViewTextBoxColumn myPasswordIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn passwordStrDataGridViewTextBoxColumn;
