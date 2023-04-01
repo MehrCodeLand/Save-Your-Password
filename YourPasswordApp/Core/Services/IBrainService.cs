@@ -12,5 +12,8 @@ namespace YourPasswordApp.Core.Services
     {
         int ValidateDataInput(PasswordVm passwordVm);
         int SavePassword(PasswordData password);
+        IList<PasswordData> GetAllPasswordData();
+        int DeletePassword(int myId);
+        int EditPassword(IList<PasswordData> passwords);
     }
 }

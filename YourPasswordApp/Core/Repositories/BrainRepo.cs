@@ -18,6 +18,59 @@ namespace YourPasswordApp.Core.Repositories
             CheckDataCenter();
         }
 
+
+        #region Show Password Form
+
+        public IList<PasswordData> GetAllPasswordData()
+        {
+            var allData = File.ReadAllText(_path);
+            if(allData == null)
+            {
+                return null;
+            }
+
+            IList<PasswordData> allPasswords = JsonConvert.DeserializeObject<IList<PasswordData>>(allData);
+            return allPasswords;
+        }
+
+        public int DeletePassword(int myId)
+        {
+            // is Valid ID
+            int result = IsValidId(myId);
+            if(result == -1 ) return -1;
+
+
+
+            IList<PasswordData> passwords = GetAllPasswordData();
+            passwords.Remove(passwords.SingleOrDefault(u => u.MyPasswordId == myId));
+
+            // save data
+            SavePasswords(passwords);
+
+            return 100; 
+        }
+        private int IsValidId( int id )
+        {
+            IList<PasswordData> passwords = GetAllPasswordData();
+            PasswordData pass = passwords.SingleOrDefault(u => u.MyPasswordId == id);
+            if(pass == null)
+            {
+                return -1;
+            }
+
+            return 1;
+        }
+
+        public int EditPassword(IList<PasswordData> passwords)
+        {
+            var dataStr = JsonConvert.SerializeObject(passwords);
+            File.WriteAllText(_path, dataStr);
+
+            return 100;
+        }
+
+        #endregion
+
         #region Save Password
         private IList<PasswordData> GetAllData()
         {
@@ -25,6 +78,11 @@ namespace YourPasswordApp.Core.Repositories
             var allPasswordData = File.ReadAllText(_path);
             data = JsonConvert.DeserializeObject<IList<PasswordData>>(allPasswordData);
             return data;
+        }
+        private void SavePasswords(IList<PasswordData> passwords)
+        {
+            var dataStr = JsonConvert.SerializeObject(passwords);
+            File.WriteAllText(_path, dataStr);
         }
         public int SavePassword(PasswordData password)
         {
@@ -76,6 +134,7 @@ namespace YourPasswordApp.Core.Repositories
 
         #endregion
 
+
         /*
          -100 -> title is null
          -200 -> title lenght
@@ -96,5 +155,7 @@ namespace YourPasswordApp.Core.Repositories
 
             return 500;
         }
+
+
     }
 }

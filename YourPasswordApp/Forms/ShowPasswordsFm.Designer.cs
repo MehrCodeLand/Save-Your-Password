@@ -33,6 +33,8 @@
             this.EditBtn = new System.Windows.Forms.Button();
             this.passwordsDG = new System.Windows.Forms.DataGridView();
             this.passwordDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.DeleteBox = new System.Windows.Forms.TextBox();
             this.myPasswordIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordStrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +49,7 @@
             this.BackBtn.BackColor = System.Drawing.Color.PaleTurquoise;
             this.BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BackBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BackBtn.Location = new System.Drawing.Point(257, 336);
+            this.BackBtn.Location = new System.Drawing.Point(133, 342);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.Size = new System.Drawing.Size(120, 34);
             this.BackBtn.TabIndex = 0;
@@ -60,12 +62,13 @@
             this.EditBtn.BackColor = System.Drawing.Color.PaleTurquoise;
             this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EditBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditBtn.Location = new System.Drawing.Point(433, 336);
+            this.EditBtn.Location = new System.Drawing.Point(133, 302);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(120, 34);
             this.EditBtn.TabIndex = 1;
             this.EditBtn.Text = "Edit";
             this.EditBtn.UseVisualStyleBackColor = false;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // passwordsDG
             // 
@@ -82,16 +85,36 @@
             this.createdDataGridViewTextBoxColumn});
             this.passwordsDG.DataSource = this.passwordDataBindingSource;
             this.passwordsDG.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.passwordsDG.Location = new System.Drawing.Point(139, 83);
+            this.passwordsDG.Location = new System.Drawing.Point(133, 46);
             this.passwordsDG.Name = "passwordsDG";
-            this.passwordsDG.ReadOnly = true;
             this.passwordsDG.RowTemplate.Height = 25;
-            this.passwordsDG.Size = new System.Drawing.Size(537, 201);
+            this.passwordsDG.Size = new System.Drawing.Size(576, 201);
             this.passwordsDG.TabIndex = 2;
             // 
             // passwordDataBindingSource
             // 
             this.passwordDataBindingSource.DataSource = typeof(YourPasswordApp.Models.PasswordData);
+            // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DeleteBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteBtn.Location = new System.Drawing.Point(134, 262);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(120, 34);
+            this.DeleteBtn.TabIndex = 3;
+            this.DeleteBtn.Text = "Delete";
+            this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // DeleteBox
+            // 
+            this.DeleteBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteBox.Location = new System.Drawing.Point(260, 263);
+            this.DeleteBox.Name = "DeleteBox";
+            this.DeleteBox.Size = new System.Drawing.Size(144, 33);
+            this.DeleteBox.TabIndex = 4;
             // 
             // myPasswordIdDataGridViewTextBoxColumn
             // 
@@ -105,7 +128,6 @@
             this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
             this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // passwordStrDataGridViewTextBoxColumn
             // 
@@ -119,7 +141,7 @@
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Width = 130;
             // 
             // createdDataGridViewTextBoxColumn
             // 
@@ -135,6 +157,8 @@
             this.BackgroundImage = global::YourPasswordApp.Properties.Resources.chong_wei__aWyVkkLrc8_unsplash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DeleteBox);
+            this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.passwordsDG);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.BackBtn);
@@ -143,6 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.passwordsDG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordDataBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -151,11 +176,13 @@
         private Button BackBtn;
         private Button EditBtn;
         private DataGridView passwordsDG;
+        private BindingSource passwordDataBindingSource;
+        private Button DeleteBtn;
+        private TextBox DeleteBox;
         private DataGridViewTextBoxColumn myPasswordIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn passwordStrDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn;
-        private BindingSource passwordDataBindingSource;
     }
 }

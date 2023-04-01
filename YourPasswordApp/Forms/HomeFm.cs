@@ -34,6 +34,13 @@ namespace YourPasswordApp.Forms
             Thread.Sleep(100);
             this.Hide();
         }
+        private void yourPasswordsBtn_Click(object sender, EventArgs e)
+        {
+             ShowPasswordsFm showPasswords = new ShowPasswordsFm( new BrainRepo());
+            showPasswords.ShowDialog();
+            Thread.Sleep(200);
+            this.Hide();
+        }
 
         private void ExitBtn_Click(object sender, EventArgs e)
         {
@@ -49,11 +56,6 @@ namespace YourPasswordApp.Forms
             psi.UseShellExecute = true;
             psi.FileName = url;
             Process.Start(psi);
-        }
-
-        private void yourPasswordsBtn_Click(object sender, EventArgs e)
-        {
-             
         }
     }
 }
